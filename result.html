@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Prediction Result</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#f6f7fb; margin:0; }
+    .card { max-width: 640px; margin: 60px auto; background:#fff; padding:28px; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,.06); }
+    .ok { color:#059669; }
+    .bad { color:#dc2626; }
+    .meta { color:#555; margin-top:6px; }
+    a { display:inline-block; margin-top:16px; text-decoration:none; color:#2563eb; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Prediction Result</h1>
+    {% if message == "No Breast Cancer Detected" %}
+      <h2 class="ok">{{ message }}</h2>
+    {% else %}
+      <h2 class="bad">{{ message }}</h2>
+    {% endif %}
+    <p class="meta">Raw class index: <b>{{ raw_output }}</b> &middot; Predicted class name: <b>{{ pred_name }}</b></p>
+    <p class="meta">Probability — Malignant: <b>{{ p_malignant }}</b> &middot; Benign: <b>{{ p_benign }}</b></p>
+    <a href="/">← Go back</a>
+  </div>
+</body>
+</html>
